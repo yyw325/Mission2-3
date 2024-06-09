@@ -1,0 +1,447 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*全站設定*/
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+p,h2,h3{
+    font-family: Noto Sans;
+}
+.dark-gray{
+    color: #3B3B3B;
+}
+.light-gray{
+    color: #919191;
+}
+.fs-5{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+}
+.fs-6{
+    color: #5B5B5B;
+}
+.lh-2{
+    line-height: 1.5;
+}
+
+/*區域：header*/
+
+.header{
+    margin: 0 auto;
+    background: #FFFFFF;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+.header-container{
+    max-width: 1296px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.header-logo{
+    padding: 28px 0px;
+}
+.menu{
+    margin: 0 auto;
+}
+.menu-list{
+    display: flex;
+    gap: 40px;
+}
+.menu-list a{
+    display: block;
+    padding: 4px 8px;
+    color: #000000;
+    position: relative;
+    text-decoration: none;
+    &:hover{
+        font-weight: 600;
+    }
+    &:hover::before{
+        border-top: 1px solid #919191;
+        border-left: 1px solid #919191;
+        width: 8px;
+        height: 8px;
+        top:0px;
+        left: 0px;
+    }
+    &:hover::after{
+        border-top: 1px solid #919191;
+        border-right: 1px solid #919191;
+        width: 8px;
+        height: 8px;
+        top:0px;
+        right: 0px;
+    }
+}
+.menu a:hover::before,:hover::after{
+    position: absolute;
+    content:'';
+    -webkit-box-reflect: below 16px;
+}
+
+/*手機版的表單*/
+
+#menu-toggle{
+    display: none;
+    max-width: 34px;
+    border: none;
+    background: none;
+}
+.menu-toggle-close{
+    display: none;
+}
+#menu-mobile.menu-list-mobile{
+    display: none;
+}
+
+
+@media  (max-width: 992px) {
+    .header-container{
+        padding: 0px 12px;
+        justify-content: space-between;
+    }
+    .menu{
+        display: none;
+    }
+    #menu-toggle{
+        display: block;
+    }
+    #menu-mobile.menu-list-mobile
+    {
+        display: block;
+        z-index: 1000;
+    }
+    .menu-toggle-close {
+        display: none;
+    }
+    .menu-list{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    
+
+}
+
+
+/*區域：content*/
+
+.content{
+    background: #FAFAFA;
+    padding-top: 140px;
+}
+.quote{
+    max-width: 670px;
+    height: 192px;
+    margin: 0 auto;
+    position: relative;
+}
+.quote-left{
+    position: absolute;
+    top: 0px;
+    left:0px;
+}
+.quote-right{
+    position: absolute;
+    bottom: 0px;
+    right:0px;
+}
+.quote-content{
+    position: absolute;
+    top: 59px;
+    left: 71px;
+    text-align: center;
+    z-index: 10;
+}
+.quote-h2{
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+.quote-h2 span{
+    background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/mark.png?raw=true);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
+}
+.container{
+    padding-bottom: 80px;
+}
+.experience{
+    max-width: 636px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.experience li{
+    max-width: 47%;
+    text-align: center;
+}
+.experience hr{
+    width: 24px;
+    border: 2px solid #C1C1C1;
+    margin: 0 auto;
+}
+
+@media  (max-width: 767px) {
+    .quote{
+        position: unset;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .quote-content{
+        max-width: 300px;
+        position: unset;
+    }
+    .quote-content h2{
+        font-size: 20px;
+    }
+    .quote-left{
+        width: 64px;
+        position: unset;
+        
+    }
+    .quote-right{
+        display: none;
+    }
+    .experience{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/*區域：作品集*/
+
+.row{
+    max-width: 1296px;
+    margin: 0 auto;
+    margin-top: 120px;
+    row-gap: 80px;
+}
+
+.works-img{
+    margin-bottom: 16px;
+    border:1 solid #F1F1F1;
+    border-radius:8px
+}
+.works-list-tag{
+    display: flex;
+    font-weight: 400;
+    line-height: 24px;
+}
+.works-list-tag li{
+    background: #F1F1F1;
+    padding:4px 12px;
+    margin-right: 16px;
+    border-radius:16px;
+}
+
+@media (max-width: 992px){
+    .row{
+        margin-top: 100px;
+        gap: 60px;
+    }
+    .col-md-12{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+  }
+
+  @media (max-width:767px){
+    .row{
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 80px;
+        gap: 48px;
+    }
+    .row h2{
+        font-size: 20px;
+    }
+    .works-list-tag li{
+        margin-right: 8px;
+    }
+  }
+
+/*區域：頁碼*/
+
+.page{
+    width: 152px;
+    margin: 0 auto;
+    margin-top: 72px;
+    margin-bottom: 120px;
+    background: white;
+    display:flex;
+    justify-content: space-between;
+    font-family: Noto Sans;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: #3B3B3B;
+    align-content: center;
+    text-align: center;
+}
+  .page li{
+    width: 40px;
+    height: 40px;
+}
+  .page1{
+    background: #1E1E1E;
+    color: #FFFFFF;
+    border-radius:4px;
+}
+
+  @media  (max-width: 992px) {
+    .page{
+        margin-top: 60px;
+        margin-bottom: 100px;
+      }
+}
+  @media  (max-width: 767px) {
+    .page{
+        margin-top: 48px;
+        margin-bottom: 80px;
+      }
+}
+
+
+/*區域：footer*/
+
+.footer{
+    background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-lg.png?raw=true);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 0px;
+}
+.footer-container{
+    max-width: 1296px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+}
+.footer-link{
+    width: 306px;
+    margin: 80px 0px;
+}
+.footer-logo{
+    width: 120px;
+    margin-bottom: 24px;
+}
+.service-p{
+    color: #919191;
+}
+.footer-btn{
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+.footer-social{
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #c1c1c1;
+}
+.bg-black{
+    background: #000000;
+    color: #F1F1F1;
+    font-size: 20px;
+    font-weight: 700;
+}
+.bg-white{
+    background: #FFFFFF;
+}
+.footer-icon{
+    padding: 8px 0px;
+    padding-left: 24px;
+}
+.display-in{
+    display: inline;
+    
+}
+@media (max-width: 992px) {
+    .footer-container{
+        padding: 0px 12px;
+    }
+}
+@media  (max-width: 767px) {
+    .footer{
+        background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2024%20web-camp/footer-bg-sm.png?raw=true);
+    }
+    .footer-container{
+        max-width: 351px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .footer-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    .footer-link{
+        margin: 0 auto;
+        margin-bottom: 40px;
+    }
+}
